@@ -5,4 +5,6 @@ export interface CreateProductDto extends Omit<Product, 'id' | 'createdAt' | 'up
   categoryId: string;
 }
 export interface UpdateProductDto extends Partial<CreateProductDto> {}
-export interface GetProductDto extends Readonly<Partial<Product>> {}
+export interface GetProductDto extends Readonly<Partial<Omit<Product, 'tags'>>> {
+  readonly tags: ReadonlyArray<string>;
+}
